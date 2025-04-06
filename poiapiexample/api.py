@@ -37,7 +37,7 @@ async def create(data: model.ExampleModel):
 # Dateiexport (klassisch, z. B. generierte Datei)
 @router.get("/download")
 def download_file():
-    path = "/tmp/example.txt"
+    path = "example.txt"
     with open(path, "w") as f:
         f.write("Dies ist eine exportierte Datei.")
     return FileResponse(path, filename="example.txt")
@@ -60,4 +60,4 @@ async def upload_file(file: UploadFile = File(...)):
 # FastAPI-Entrypoint
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("your_service.api:router", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("poiapiexample.api:router", host="0.0.0.0", port=8000, reload=True)
